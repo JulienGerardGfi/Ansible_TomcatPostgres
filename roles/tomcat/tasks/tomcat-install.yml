@@ -1,5 +1,1 @@
 ---
-- name: Download foo.conf
-  get_url:
-    url: 
-    dest: /etc/foo.conf

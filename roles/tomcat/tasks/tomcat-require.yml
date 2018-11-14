@@ -14,9 +14,13 @@
     state: present
   become: yes
 
-- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+- name: Add the user 'tomcat' without bash shell, Home directory /opt/tomcat, join the group 'tomcat'
   user:
     name: tomcat
     shell: /bin/false
     home: /opt/tomcat
     group: tomcat
+
+- name: Create tomcat directory
+  file: path=/opt/tomcat state=directory owner=tomcat group=tomcat recurse=yes
+

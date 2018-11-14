@@ -1,0 +1,8 @@
+---
+- name: Download Tomcat
+  get_url:
+    url: http://apache.mediamirrors.org/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
+    dest: /tmp
+
+- name: Creates directory
+  file: path=/src/www state=directory
