@@ -1,0 +1,22 @@
+---
+#installation de Java
+- name: installation de Java
+  apt: 
+    name: default-jdk
+    state: latest
+    update_cache: yes
+  become: yes
+
+#Création du groupe tomcat
+- name: Création groupe tomcat
+  group:
+    name: tomcat
+    state: present
+  become: yes
+
+- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+  user:
+    name: tomcat
+    shell: /bin/false
+    home: /opt/tomcat
+    group: tomcat

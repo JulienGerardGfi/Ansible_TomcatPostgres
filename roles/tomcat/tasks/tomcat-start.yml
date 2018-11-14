@@ -1,0 +1,5 @@
+---
+# Demarrage de tomcat
+- name: "Tomcat start"
+  #  shell: "cd {{ tom_home }};nohup {{ tom_home }}/BOOT > /dev/null 2>&1 &"
+  tags: tomcat-start
