@@ -9,30 +9,17 @@
 - name: Tomcat Owner of logs
   file: dest=/opt/tomcat/logs owner=tomcat recurse=yes
 
-#Add Tomcat user
-- name: add tomcat user
-  lineinfile:
-    path: /opt/tomcat/conf/tomcat-users.xml
-    insertbefore: '</tomcat-users>'
-    line: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
+- name: Push template to add tomcat user
+  template:
+    src: templates/tomcat-users.xml.j2
+    dest: /opt/tomcat/conf/tomcat-users.xml
 
-#Comment resource locking
-- lineinfile:
-  path: /opt/tomcat/webapps/manager/META-INF/context.xml
-  insertbefore: '<Valve allow='
-  line: '<!--'
-- lineinfile:
-  path: /opt/tomcat/webapps/manager/META-INF/context.xml
-  insertafter: 'RemoteAddrValve"/>'
-  line: '-->'
-- lineinfile:
-  path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
-  regexp: '<!--'
-  insertbefore: '<Valve allow='
-  line: '<!--'
-- lineinfile:
-  path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
-  regexp: '-->'
-  insertafter: 'RemoteAddrValve"/>'
-  line: '-->'
-  
+- name: Push template for context manager
+  template:
+    src: templates/context.xml.j2
+    dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+
+- name: Push template for context host-manager
+  template:
+    src: templates/context.xml.j2
+    dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
