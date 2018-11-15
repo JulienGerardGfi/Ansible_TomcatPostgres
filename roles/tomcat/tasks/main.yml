@@ -1,4 +1,5 @@
 ---
+hosts: all
 #- name: "Stop si besoin"
 #  import_tasks: "tomcat-stop.yml"
 
