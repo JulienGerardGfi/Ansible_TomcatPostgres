@@ -1,1 +1,5 @@
 ---
+- name: War Deploy
+  copy:
+    src: /etc/ansible/Ansible_TomcatPostgres/hello-world.war
+    dest: /opt/apache-tomcat-9.0.13/
