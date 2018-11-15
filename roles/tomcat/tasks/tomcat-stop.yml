@@ -1,3 +1,4 @@
 # Arret de tomcat
 - name: "Tomcat stop"
   shell: "/opt/apache-tomcat-9.0.13/bin/shutdown.sh"
+  ignore_errors: yes
