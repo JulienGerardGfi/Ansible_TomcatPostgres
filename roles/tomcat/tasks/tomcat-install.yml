@@ -12,6 +12,7 @@
 #Add Tomcat user
 - lineinfile:
   path: /opt/tomcat/conf/tomcat-users.xml
+  regexp: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
   insertbefore: '</tomcat-users>'
   line: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
 
