@@ -2,5 +2,8 @@
 - name: Unzip archives on /opt/tomcat
   unarchive:
     src: http://apache.mediamirrors.org/tomcat/tomcat-9/v9.0.13/bin/apache-tomcat-9.0.13.tar.gz
-    dest: /opt/tomcat
+    dest: /opt/
     remote_src: yes
+
+- name: Copy files
+  copy: src=/opt/apache-tomcat-9* dest=/opt/tomcat
