@@ -1,5 +1,7 @@
 ---
 #Stop si besoin
 #pre-requis
+#dl unzip
 #install
+#deploy war
 #start tomcat

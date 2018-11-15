@@ -1,1 +1,35 @@
 ---
+#Make tomcat owner
+- name: Tomcat Owner of webapps
+  file: dest=/opt/tomcat/webapps owner=tomcat recurse=yes
+- name: Tomcat Owner of work
+  file: dest=/opt/tomcat/work owner=tomcat recurse=yes
+  - name: Tomcat Owner of temp
+  file: dest=/opt/tomcat/temp owner=tomcat recurse=yes
+  - name: Tomcat Owner of logs
+  file: dest=/opt/tomcat/logs owner=tomcat recurse=yes
+
+#Add Tomcat user
+- lineinfile:
+  path: /opt/tomcat/conf/tomcat-users.xml
+  insertbefore: '</tomcat-users>'
+  line: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
+
+#Comment resource locking
+- lineinfile:
+  path: /opt/tomcat/webapps/manager/META-INF/context.xml
+  insertbefore: '<Valve allow='
+  line: '<!--'
+- lineinfile:
+  path: /opt/tomcat/webapps/manager/META-INF/context.xml
+  insertafter: 'RemoteAddrValve"/>'
+  line: '-->'
+- lineinfile:
+  path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+  insertbefore: '<Valve allow='
+  line: '<!--'
+  - lineinfile:
+  path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+  insertafter: 'RemoteAddrValve"/>'
+  line: '-->'
+  
