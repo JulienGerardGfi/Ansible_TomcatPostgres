@@ -1,12 +1,7 @@
 ---
-#Stop si besoin
-#pre-requis
-#dl unzip
-#install
-#deploy war
-#start tomcat
 #- name: "Stop si besoin"
 #  import_tasks: "tomcat-stop.yml"
+
 - name: "Mise en place des prérequis"
   import_tasks: "tomcat-require.yml"
 
@@ -16,8 +11,8 @@
 - name: "Installation"
   import_tasks: "tomcat-install.yml"
 
-- name: "Deploiement du War"
-  import_tasks: "tomcat-deploy-war.yml"
+#- name: "Deploiement du War"
+#  import_tasks: "tomcat-deploy-war.yml"
 
 - name: "Start Tomcat"
   import_tasks: "tomcat-start.yml"
