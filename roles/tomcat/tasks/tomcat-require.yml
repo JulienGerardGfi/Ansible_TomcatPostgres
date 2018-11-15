@@ -1,11 +1,7 @@
 ---
 #installation de Java
 - name: installation de Java
-  apt: 
-    name: default-jdk
-    state: latest
-    update_cache: yes
-  become: yes
+  apt: name=default-jdk state=latest update_cache=yes become=yes
 
 #Création du groupe tomcat
 - name: Création groupe tomcat
