@@ -1,14 +1,14 @@
 ---
 #installation de Java
-#- name: installation de Java
-#  apt: name=default-jdk state=latest
+- name: installation de Java
+  apt: name=default-jdk state=latest
 
 #Création du groupe tomcat
 - name: Création groupe tomcat
   group:
     name: tomcat
     state: present
-#  become: yes
+  become: yes
 
 - name: Add the user 'tomcat' without bash shell, Home directory /opt/tomcat, join the group 'tomcat'
   user:
