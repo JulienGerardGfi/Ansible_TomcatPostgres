@@ -10,21 +10,19 @@
   file: dest=/opt/tomcat/logs owner=tomcat recurse=yes
 
 #Add Tomcat user
-- lineinfile:
-  path: /opt/tomcat/conf/tomcat-users.xml
-  regexp: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
-  insertbefore: '</tomcat-users>'
-  line: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
+- name: add tomcat user
+  lineinfile:
+    path: /opt/tomcat/conf/tomcat-users.xml
+    insertbefore: '</tomcat-users>'
+    line: '<user username="admin" password="password" roles="manager-gui,admin-gui"/>'
 
 #Comment resource locking
 - lineinfile:
   path: /opt/tomcat/webapps/manager/META-INF/context.xml
-  regexp: '<!--'
   insertbefore: '<Valve allow='
   line: '<!--'
 - lineinfile:
   path: /opt/tomcat/webapps/manager/META-INF/context.xml
-  regexp: '-->'
   insertafter: 'RemoteAddrValve"/>'
   line: '-->'
 - lineinfile:
