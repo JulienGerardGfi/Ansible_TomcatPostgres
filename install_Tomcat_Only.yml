@@ -1,5 +1,5 @@
 ---
-- hosts: tomcat-install-host
+- hosts: all
   roles:
     - { role: tomcat}
   tags: tomcat
