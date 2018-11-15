@@ -1,7 +1,7 @@
 ---
 #installation de Java
-- name: installation de Java
-  apt: name=default-jdk state=latest
+#- name: installation de Java
+#  apt: name=default-jdk state=latest
 
 #Création du groupe tomcat
 - name: Création groupe tomcat
