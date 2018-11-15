@@ -6,4 +6,4 @@
     remote_src: yes
 
 - name: Copy files
-  copy: src=/opt/apache-tomcat-9* dest=/opt/tomcat
+  copy: src=/opt/apache-tomcat-9.0.13 dest=/opt/tomcat
