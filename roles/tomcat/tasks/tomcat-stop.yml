@@ -1,6 +1,3 @@
 # Arret de tomcat
 - name: "Tomcat stop"
-  shell: "{{ tom_home }}/SHUT"
-
-- name: "Check Rip"
-  import_tasks: "m2s_tom_proc.yml"
+  shell: "/opt/tomcat/SHUT"
