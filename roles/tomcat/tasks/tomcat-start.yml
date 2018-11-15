@@ -1,5 +1,5 @@
 ---
 # Demarrage de tomcat
 - name: "Tomcat start"
-  shell: "cd /opt/tomcat;nohup /opt/tomcat/BOOT > /dev/null 2>&1 &"
+  shell: "cd /opt/apache-tomcat-9.0.13;nohup /opt/apache-tomcat-9.0.13/BOOT > /dev/null 2>&1 &"
   tags: tomcat-start

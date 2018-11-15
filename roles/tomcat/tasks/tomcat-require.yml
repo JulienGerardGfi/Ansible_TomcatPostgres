@@ -14,8 +14,8 @@
   user:
     name: tomcat
     shell: /bin/false
-    home: /opt/tomcat
+    home: /opt/apache-tomcat-9.0.13
     group: tomcat
 
 - name: Create tomcat directory
-  file: path=/opt/tomcat state=directory owner=tomcat group=tomcat recurse=yes
+  file: path=/opt/apache-tomcat-9.0.13 state=directory owner=tomcat group=tomcat recurse=yes

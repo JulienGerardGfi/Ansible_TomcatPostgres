@@ -1,25 +1,25 @@
 ---
 #Make tomcat owner
 - name: Tomcat Owner of webapps
-  file: dest=/opt/tomcat/webapps owner=tomcat recurse=yes
+  file: dest=/opt/apache-tomcat-9.0.13/webapps owner=tomcat recurse=yes
 - name: Tomcat Owner of work
-  file: dest=/opt/tomcat/work owner=tomcat recurse=yes
+  file: dest=/opt/apache-tomcat-9.0.13/work owner=tomcat recurse=yes
 - name: Tomcat Owner of temp
-  file: dest=/opt/tomcat/temp owner=tomcat recurse=yes
+  file: dest=/opt/apache-tomcat-9.0.13/temp owner=tomcat recurse=yes
 - name: Tomcat Owner of logs
-  file: dest=/opt/tomcat/logs owner=tomcat recurse=yes
+  file: dest=/opt/apache-tomcat-9.0.13/logs owner=tomcat recurse=yes
 
 - name: Push template to add tomcat user
   template:
     src: templates/tomcat-users.xml.j2
-    dest: /opt/tomcat/conf/tomcat-users.xml
+    dest: /opt/apache-tomcat-9.0.13/conf/tomcat-users.xml
 
 - name: Push template for context manager
   template:
     src: templates/context.xml.j2
-    dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+    dest: /opt/apache-tomcat-9.0.13/webapps/manager/META-INF/context.xml
 
 - name: Push template for context host-manager
   template:
     src: templates/context.xml.j2
-    dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+    dest: /opt/apache-tomcat-9.0.13/webapps/host-manager/META-INF/context.xml
