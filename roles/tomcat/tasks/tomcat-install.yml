@@ -18,18 +18,22 @@
 #Comment resource locking
 - lineinfile:
   path: /opt/tomcat/webapps/manager/META-INF/context.xml
+  regexp: '<!--'
   insertbefore: '<Valve allow='
   line: '<!--'
 - lineinfile:
   path: /opt/tomcat/webapps/manager/META-INF/context.xml
+  regexp: '-->'
   insertafter: 'RemoteAddrValve"/>'
   line: '-->'
 - lineinfile:
   path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+  regexp: '<!--'
   insertbefore: '<Valve allow='
   line: '<!--'
 - lineinfile:
   path: /opt/tomcat/webapps/host-manager/META-INF/context.xml
+  regexp: '-->'
   insertafter: 'RemoteAddrValve"/>'
   line: '-->'
   
