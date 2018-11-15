@@ -23,4 +23,3 @@
 
 - name: Create tomcat directory
   file: path=/opt/tomcat state=directory owner=tomcat group=tomcat recurse=yes
-
